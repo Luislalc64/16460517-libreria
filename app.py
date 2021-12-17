@@ -282,7 +282,7 @@ def agregargenero():
 
 @app.route('/eliminarG/<id>')
 def eliminarG(id):
-    libro = Libro.query.filter_by(id_libro=int(id)).delete()
+    gen = Genero.query.filter_by(id_genero=int(id)).delete()
     print(libro)
     db.session.commit()
     return redirect('/genero')
