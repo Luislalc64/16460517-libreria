@@ -12,7 +12,7 @@ db = SQLAlchemy(app)
 
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1164@localhost:5432/bd'
+app.config['SQLALCHEMY_DATABASE_URI'] = ''postgresql://bpkuntuozplhyv:1946b29e86df8f0662ca8d2b9c2499a72e77396536664563d32b2b1251ce3c73@ec2-52-200-188-218.compute-1.amazonaws.com:5432/d43d8jemsfbnfd''
 #postgresql://postgres:1164@localhost:5432/bd#
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #'postgresql://bpkuntuozplhyv:1946b29e86df8f0662ca8d2b9c2499a72e77396536664563d32b2b1251ce3c73@ec2-52-200-188-218.compute-1.amazonaws.com:5432/d43d8jemsfbnfd'#
