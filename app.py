@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 db = SQLAlchemy(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1164@localhost:5432/bd'
+#postgresql://postgres:1164@localhost:5432/bd#
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 bcrypt = Bcrypt(app)
