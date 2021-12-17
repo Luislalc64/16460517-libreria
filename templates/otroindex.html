@@ -1,0 +1,56 @@
+
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+<div class="container">
+
+  <a href="#" class="navbar-brand d-flex align-items-center">
+    <img class='centra' src="\static\images\mega.png" alt="internet" width="200 " vspace="20" hspace="10" />
+  </a>
+</div>
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h2 class="fw-light">Libreria MEGA</h2>
+    </div>
+  </div>
+</section>
+</div>
+</header>
+
+<section class="py-5 text-center container">
+<div class="row py-lg-5">
+<div class="col-lg-6 col-md-8 mx-auto">
+  <h1 class="fw-light">Administracion de libros</h1>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+<table class="center">
+<h2 class="headertekst">Libros registrados</h2>
+<th>Titulo</th>
+<th>Autor</th>
+<th>Genero</th>
+<th>Editorial</th>
+{% for libro in consulta %}
+<tr>
+<td align = "center"> {{libro.titulo_libro}} </td>
+<td align = "center"> {{libro.nom_autor}} </td>
+<td align = "center"> {{libro.nom_gen}} </td>
+<td align = "center"> {{libro.nombre_editorial}} </td>
+</tr>
+{% endfor %}
+</table>
+
+
+
+{% endblock %}

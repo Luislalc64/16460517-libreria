@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block titulo %}Libreria_MEGA{% endblock titulo %}
+{% block body %}
+{% block contenido %}
+
+
+<body>
+    <div class="row">
+		<img class='centra' src="\static\images\mega.png" alt="internet" width="200 " vspace="20" hspace="10" />
+		<h1 style="text-align:center">Registro de nuevo usuario</h1>
+	</div>  
+    <div class="row input-container">
+        
+        <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                <!-- formulario-->
+                <form action="/registrar_usuario" method="post" class="box">
+                    <div class="field">
+                        <label for="" class="label"> Email</label>
+                        <div class="control has-icons-left">
+                            <input type="email" name="email" placeholder="e.g. bobsmith@gmail.com" class="ir">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="" class="label">Password</label>
+                        <div class="control has-icons-left">
+                            <input type="password" name="password" placeholder="*******" class="input" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <input type="submit" value="Registrarse" class="btn-lrg submit-btn">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+        </form>
+        
+    </div>
+
+</body>
+{% endblock contenido %}
+
+{% block pie %}
+<div class="nuevo">
+    <ul>
+        <li><a href="https://twitter.com/armandoleon97">Twitter</a></li>
+        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Codepen</a></li>
+        <li><a href="16460517@colima.tecnm.mx">Email</a></li>
+        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Dribbble</a></li>
+        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Github</a></li>
+        <li>
+            <p>👋</p>
+        </li>
+    </ul>
+</div>
+
+{% endblock pie %}
+{% endblock body %}

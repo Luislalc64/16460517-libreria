@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="en">
+{% block head %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Libreria MEGA</title>
+  <link rel="stylesheet" media="all" href="\static\css\styleform.css" />
+
+</head>
+{% endblock %}
+
+{% block body %}
+
+<body>
+  <div id="page-container">
+    {% block encabezado %}
+    <header>
+      <div class="topnav">
+        <a class= "active" href="/paginap">Inicio</a>
+        <a href="/libro">Gestionar Libro</a>
+        <a href="/editorial">Gestionar Editorial</a>
+        <a href="/autor">Gestionar Autor</a>
+        <a href="/genero">Gestionar Genero</a>
+        <a class="active2" href="/">Salir</a>
+      </div>
+    </header>
+    {% endblock %}
+    {% block contenido %}
+    {% endblock %}
+  </div>
+
+  {% block pie %}
+  <footer>
+    <div class="nuevo">
+      <ul>
+        <li><a href="https://twitter.com/armandoleon97">Twitter</a></li>
+        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Codepen</a></li>
+        <li><a href="">Email</a></li>
+        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Dribbble</a></li>
+        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Github</a></li>
+        <li>
+          <p>👋</p>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  {% endblock %}
+  </div>
+</body>
+{% endblock %}
+
+
+
+</html>

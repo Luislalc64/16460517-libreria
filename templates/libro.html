@@ -1,0 +1,134 @@
+
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+<div class="container">
+	<img class='centra' src="\static\images\mega.png" alt="internet" width="200 " vspace="20" hspace="10" />
+	<div class="row">
+		<h1 style="text-align:center">Libros registrados</h1>
+	</div>
+	<table class="center">
+		<th>Titulo</th>
+		<th>Fecha de publicacion</th>
+		<th>Paginas</th>
+		<th>Formato</th>
+		<th>Volumen</th>
+		<th>Autor</th>
+		<th>Genero</th>
+		<th>Editorial</th>
+		<td align= "center">Opciones</td>
+		<th>Marcar como favorito</th>
+
+		{% for libro2 in consulta0 %}
+		<tr>
+			<td align="center"> {{libro2.titulo_libro}} </td>
+			<td align="center"> {{libro2.fecha_publicacion}} </td>
+			<td align="center"> {{libro2.n_paginas}} </td>
+			<td align="center"> {{libro2.formato}} </td>
+			<td align="center"> {{libro2.volumen}} </td>
+			<td align="center"> {{libro2.nom_autor}} </td>
+			<td align="center"> {{libro2.nom_gen}} </td>
+			<td align="center"> {{libro2.nombre_editorial}} </td>
+			<td> <a href="/editarL1/{{libro2.id_libro}}"> Editar </a> <a href="/eliminarL/{{libro2.id_libro}}"> Eliminar </a></td>
+			<td><label><input type="checkbox" id="cbox1" value="1"></label><br>
+			</td>
+		
+		</tr>
+		{% endfor %}
+	</table>
+
+	<div class="row">
+		<h1 style="text-align:center">Registrar un libro nuevo</h1>
+	</div>
+
+	
+
+	<form action="\agregarlibro" method="POST">
+		<div class="row input-container">
+			<div class="col-xs-12">
+				<div class="styled-input wide">
+					<input type="text" id='titulo' name='titulo' required />
+					<label>Titulo</label>
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<option hidden selected>Genero</option>
+				<div class="styled-input wide">
+					<input type="date" id='fecha' name='fecha' required />
+
+				</div>
+
+
+			</div>
+			<div class="col-xs-12">
+				<div class="styled-input wide">
+					<input type="number" id='paginas' name='paginas' required />
+					<label>Numero de paginas</label>
+				</div>
+
+
+			</div>
+			<div class="col-xs-12">
+				<div class="styled-input wide">
+					<input type="text" id='formato' name='formato' required />
+					<label>Formato</label>
+				</div>
+
+
+			</div>
+			<div class="col-xs-12">
+				<div class="styled-input wide">
+					<input type="text" id='volumen' name='volumen' required />
+					<label>Volumen</label>
+				</div>
+
+
+			</div>
+			<div class="select">
+				<select name="genero">
+					<option hidden selected>Genero</option>
+					{% for genero in consulta %}
+					<option value="{{genero.id_genero}}">
+						{{genero.nom_gen}}
+					</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="select">
+				<select name="autor">
+					<option hidden selected>Autor</option>
+					{% for autor in consulta2 %}
+					<option value="{{autor.id_autor}}">
+						{{autor.nom_autor}}
+					</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="select">
+				<select name="editorial">
+					<option hidden selected>Editorial</option>
+					{% for editorial in consulta3 %}
+					<option value="{{editorial.id_editorial}}">
+						{{editorial.nombre_editorial}}
+					</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="col-xs-12">
+				<input type="submit" value="Salvar Cambios!" class="btn-lrg submit-btn">
+
+			</div>
+
+		</div>
+
+
+
+	</form>
+</div>
+
+
+
+{% endblock %}

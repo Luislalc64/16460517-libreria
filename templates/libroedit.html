@@ -1,0 +1,170 @@
+{% extends 'layout.html' %}
+
+{% block titulo %}D'Leon Notes{% endblock titulo %}
+{% block body %}
+{% block contenido %}
+
+<body>
+	<header>
+		<div class="topnav">
+			<a class="active" href="/">Salir</a>
+			<a href="/libro">Gestionar Libro</a>
+			<a href="/editorial">Gestionar Editorial</a>
+			<a href="/autor">Gestionar Autor</a>
+			<a href="/genero">Gestionar Genero</a>
+			<a href="#about">About</a>
+		</div>
+
+		<div class="container">
+			<img class='centra' src="\static\images\mega.png" alt="internet" width="200 " vspace="20" hspace="10" />
+			<div class="row">
+				<h1 style="text-align:center">Libros registrados</h1>
+			</div>
+
+			<div class="row">
+				<h1 style="text-align:center">Registrar un libro nuevo</h1>
+			</div>
+
+			
+
+			<form action="\editarL2" method="POST">
+				<div class="row input-container">
+					<div class="col-xs-12">
+
+						<div class="styled-input wide">
+							<input type="text" id='titulo' name='titulo' required 
+							{% for libro1 in consulta %}
+							<option value="{{libro1.titulo_libro}}">
+								
+							</option>
+							{% endfor %}
+							
+							
+							
+							<label>Titulo</label>
+						</div>
+					</div>
+					<div class="col-xs-12">
+						<option hidden selected>Genero</option>
+						<div class="styled-input wide">
+							<input type="date" id='fecha' name='fecha' required
+							{% for libro1 in consulta %}
+							<option value="{{libro1.fecha_publicacion}}">
+							</option>
+							{% endfor %}
+							
+
+						</div>
+
+
+					</div>
+					<div class="col-xs-12">
+						<div class="styled-input wide">
+							<input type="number" id='paginas' name='paginas' required 
+							{% for libro1 in consulta %}
+							<option value="{{libro1.n_paginas}}">
+							</option>
+							{% endfor %}
+							<label>Numero de paginas</label>
+						</div>
+
+
+					</div>
+					<div class="col-xs-12">
+						<div class="styled-input wide">
+							<input type="text" id='formato' name='formato' required 
+							{% for libro1 in consulta %}
+							<option value="{{libro1.formato}}">
+							</option>
+							{% endfor %}
+						
+							<label>Formato</label>
+						</div>
+
+
+					</div>
+					<div class="col-xs-12">
+						<div class="styled-input wide">
+							<input type="text" id='volumen' name='volumen' required 
+							{% for libro1 in consulta %}
+							<option value="{{libro1.volumen}}">
+							</option>
+							{% endfor %}
+							<label>Volumen</label>
+						</div>
+
+
+					</div>
+					<div class="select">
+						<select name="genero">
+							<option hidden selected>Genero</option>
+							{% for libro1 in consulta %}
+							<option value="{{libro1.id_genero}}">
+								{{libro1.nom_gen}}
+							</option>
+							{% endfor %}
+						</select>
+					</div>
+
+
+
+					<div class="select">
+						<select name="autor">
+							<option hidden selected>Autor</option>
+							{% for autor in consulta2 %}
+							<option value="{{autor.id_autor}}">
+								{{autor.nom_autor}}
+							</option>
+							{% endfor %}
+						</select>
+					</div>
+
+					
+
+					<div class="select">
+						<select name="editorial">
+							<option hidden selected>Editorial</option>
+							{% for editorial in consulta3 %}
+							<option value="{{editorial.id_editorial}}">
+								{{editorial.nombre_editorial}}
+							</option>
+							{% endfor %}
+						</select>
+					</div>
+
+
+
+				</div>
+
+
+
+				<div class="col-xs-12">
+					<input type="submit" value="Salvar Cambios!" class="btn-lrg submit-btn">
+	
+				</div>
+		</div>
+		</div>
+		</form>
+
+</body>
+{% endblock contenido %}
+{% block pie %}
+<div class="nuevo">
+	<ul>
+		<li><a href="https://twitter.com/armandoleon97">Twitter</a></li>
+		<li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Codepen</a></li>
+		<li><a href="">Email</a></li>
+		<li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Dribbble</a></li>
+		<li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Github</a></li>
+		<li>
+			<p>👋</p>
+		</li>
+	</ul>
+</div>
+
+{% endblock pie %}
+
+
+
+
+{% endblock body %}
