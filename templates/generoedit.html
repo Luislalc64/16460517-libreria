@@ -8,28 +8,26 @@
 		<h1 style="text-align:center">Generos literarios registrados</h1>
 	</div>
 
-	<table class="center">
-		<th>Nombre</th>
-		<td align="center">Opciones</td>
-		{% for gen in consulta %}
-		<tr>
-			<td align="center"> {{gen.nom_gen}} </td>
-			<td align="center"> <a href="/editarG1/{{gen.id_genero}}"> Editar </a> <a
-					href="/eliminarG/{{gen.id_genero}}"> Eliminar </a></td>
-
-		</tr>
-		{% endfor %}
-	</table>
 	<div class="row">
-		<h1 style="text-align:center">Registrar un nuevo genero</h1>
+		<h1 style="text-align:center">Editar Genero Literario</h1>
 	</div>
 
-	<form action="\agregargenero" method="POST">
+	<form action="\editarG2" method="POST">
 		<div class="row input-container">
 			<div class="col-xs-12">
 				<div class="styled-input wide">
-					<input type="text" id='nombre' name='nombre' required />
-					<label>Nombre del genero</label>
+					<input type="text" id='nombre' name='nombre' required {% for libro1 in consulta %} <option
+						value="{{libro1.nom_gen}}">
+
+					</option>
+					{% endfor %}
+					<label>Nombre</label>
+				</div>
+
+				<div class="hidden">
+					<input type="hidden" id='id' name='id' required {% for libro1 in consulta %}
+						value="{{libro1.id_genero}}">
+					{% endfor %}
 				</div>
 				
 			</div>

@@ -17,9 +17,9 @@
 		<th>Autor</th>
 		<th>Genero</th>
 		<th>Editorial</th>
-		<td align= "center">Opciones</td>
-		<th>Marcar como favorito</th>
-
+		<th>Acciones</th>
+		<th>Favoritos</th>
+		
 		{% for libro2 in consulta0 %}
 		<tr>
 			<td align="center"> {{libro2.titulo_libro}} </td>
@@ -30,10 +30,10 @@
 			<td align="center"> {{libro2.nom_autor}} </td>
 			<td align="center"> {{libro2.nom_gen}} </td>
 			<td align="center"> {{libro2.nombre_editorial}} </td>
-			<td> <a href="/editarL1/{{libro2.id_libro}}"> Editar </a> <a href="/eliminarL/{{libro2.id_libro}}"> Eliminar </a></td>
-			<td><label><input type="checkbox" id="cbox1" value="1"></label><br>
-			</td>
-		
+			
+			<td> <a href="/editarL1/{{libro2.id_libro}}"> Editar </a> <a href="/eliminarL/{{libro2.id_libro}}"> Eliminar </a> </td>
+			<td><a href="/afav/{{libro2.id_libro}}"> Añadir a favoritos </a></td>
+			
 		</tr>
 		{% endfor %}
 	</table>
@@ -116,6 +116,8 @@
 					{% endfor %}
 				</select>
 			</div>
+
+
 
 			<div class="col-xs-12">
 				<input type="submit" value="Salvar Cambios!" class="btn-lrg submit-btn">

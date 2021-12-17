@@ -11,11 +11,15 @@
 
 	<table class="center">
 		<th>Nombre</th>
+		<th>Fecha de nacimiento</th>
+		<th>Nacionalidad</th>
 		<td align="center">Opciones</td>
 		{% for aut in consulta %}
 		<tr>
 			<td align="center"> {{aut.nom_autor}} </td>
-			<td align="center"> <a href="/editarL/{{aut.id_autor}}"> Editar </a> <a href="/eliminarL/{{aut.id_autor}}">
+			<td align="center"> {{aut.fecha_nac}} </td>
+			<td align="center"> {{aut.nacionalidad}} </td>
+			<td align="center"> <a href="/editarA1/{{aut.id_autor}}"> Editar </a> <a href="/eliminarA/{{aut.id_autor}}">
 					Eliminar </a></td>
 
 		</tr>

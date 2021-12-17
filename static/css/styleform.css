@@ -273,7 +273,10 @@ ul {
 
   table, th, td {
     border: 1px solid black;
-    width: 35%;
+    background-color: lightblue;
+    columns: 80px;
+    height: 50px;
+    
   }
 
   select {

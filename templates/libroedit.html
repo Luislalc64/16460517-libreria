@@ -22,48 +22,49 @@
 			</div>
 
 			<div class="row">
-				<h1 style="text-align:center">Registrar un libro nuevo</h1>
+				<h1 style="text-align:center">Editar Libro</h1>
 			</div>
 
-			
+
+
 
 			<form action="\editarL2" method="POST">
 				<div class="row input-container">
 					<div class="col-xs-12">
 
 						<div class="styled-input wide">
-							<input type="text" id='titulo' name='titulo' required 
-							{% for libro1 in consulta %}
-							<option value="{{libro1.titulo_libro}}">
-								
-							</option>
+							<input type="text" id='titulo' name='titulo' required {% for libro1 in consulta %}
+								value="{{libro1.titulo_libro}}">
 							{% endfor %}
-							
-							
-							
 							<label>Titulo</label>
 						</div>
+
+
+						<div class="hidden">
+							<input type="hidden" id='id' name='id' required {% for libro1 in consulta %}
+								value="{{libro1.id_libro}}">
+							{% endfor %}
+						</div>
 					</div>
+
+
+
+
+
 					<div class="col-xs-12">
 						<option hidden selected>Genero</option>
 						<div class="styled-input wide">
-							<input type="date" id='fecha' name='fecha' required
-							{% for libro1 in consulta %}
-							<option value="{{libro1.fecha_publicacion}}">
-							</option>
+							<input type="text" id='fecha' name='fecha' required {% for libro1 in consulta %}
+								value="{{libro1.fecha_publicacion}}">
 							{% endfor %}
-							
-
 						</div>
 
 
 					</div>
 					<div class="col-xs-12">
 						<div class="styled-input wide">
-							<input type="number" id='paginas' name='paginas' required 
-							{% for libro1 in consulta %}
-							<option value="{{libro1.n_paginas}}">
-							</option>
+							<input type="number" id='paginas' name='paginas' required {% for libro1 in consulta %}
+								value="{{libro1.n_paginas}}">
 							{% endfor %}
 							<label>Numero de paginas</label>
 						</div>
@@ -72,12 +73,11 @@
 					</div>
 					<div class="col-xs-12">
 						<div class="styled-input wide">
-							<input type="text" id='formato' name='formato' required 
-							{% for libro1 in consulta %}
-							<option value="{{libro1.formato}}">
-							</option>
+							<input type="text" id='formato' name='formato' required {% for libro1 in consulta %}
+								value="{{libro1.formato}}">
+
 							{% endfor %}
-						
+
 							<label>Formato</label>
 						</div>
 
@@ -85,64 +85,73 @@
 					</div>
 					<div class="col-xs-12">
 						<div class="styled-input wide">
-							<input type="text" id='volumen' name='volumen' required 
-							{% for libro1 in consulta %}
-							<option value="{{libro1.volumen}}">
-							</option>
+							<input type="text" id='volumen' name='volumen' required {% for libro1 in consulta %}
+								value="{{libro1.volumen}}">
+
 							{% endfor %}
 							<label>Volumen</label>
 						</div>
 
 
+						<div class="select" required>
+							<select name="genero">
+								<option hidden selected>Seleccionar Genero</option>
+								{% for consultar1 in consulta1 %}
+								<option id="genero" name='genero' value="{{consultar1.id_genero}}" required>
+									{{consultar1.nom_gen}}
+								</option>
+								{% endfor %}
+							</select>
+						</div>
+
+
+
+						<div class="select">
+							<select name="autor">
+								<option hidden selected>Seleccionar Autor</option>
+								{% for consultar2 in consulta2 %}
+								<option name="autor" value="{{consultar2.id_autor}}">
+									{{consultar2.nom_autor}}
+								</option>
+								{% endfor %}
+							</select>
+						</div>
+
+
+
+						<div class="select">
+							<select name="editorial">
+								<option hidden selected>Seleccionar Editorial</option>
+								{% for consultar3 in consulta3 %}
+								<option name="editorial" value="{{consultar3.id_editorial}}">
+									{{consultar3.nombre_editorial}}
+								</option>
+								{% endfor %}
+							</select>
+						</div>
+
+						<div class="select">
+							<select name="fav">
+								<option hidden selected>Asignar Favorito por cuenta</option>
+								{% for fav in fav %}
+								<option value="{{fav.id}}">
+									{{fav.email}}
+								</option>
+								{% endfor %}
+							</select>
+						</div>
+
+
+
 					</div>
-					<div class="select">
-						<select name="genero">
-							<option hidden selected>Genero</option>
-							{% for libro1 in consulta %}
-							<option value="{{libro1.id_genero}}">
-								{{libro1.nom_gen}}
-							</option>
-							{% endfor %}
-						</select>
+
+
+
+					<div class="col-xs-12">
+						<input type="submit" value="Salvar Cambios!" class="btn-lrg submit-btn">
+
 					</div>
-
-
-
-					<div class="select">
-						<select name="autor">
-							<option hidden selected>Autor</option>
-							{% for autor in consulta2 %}
-							<option value="{{autor.id_autor}}">
-								{{autor.nom_autor}}
-							</option>
-							{% endfor %}
-						</select>
-					</div>
-
-					
-
-					<div class="select">
-						<select name="editorial">
-							<option hidden selected>Editorial</option>
-							{% for editorial in consulta3 %}
-							<option value="{{editorial.id_editorial}}">
-								{{editorial.nombre_editorial}}
-							</option>
-							{% endfor %}
-						</select>
-					</div>
-
-
-
 				</div>
-
-
-
-				<div class="col-xs-12">
-					<input type="submit" value="Salvar Cambios!" class="btn-lrg submit-btn">
-	
-				</div>
-		</div>
 		</div>
 		</form>
 

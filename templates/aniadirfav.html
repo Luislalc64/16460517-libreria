@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+<div class="container">
+	<img class='centra' src="\static\images\mega.png" alt="internet" width="200 " vspace="20" hspace="10" />
+	<div class="row">
+		<h1 style="text-align:center">Favoritos</h1>
+	</div>
+
+	
+	<div class="row">
+		<h1 style="text-align:center">Seleciona el usuario al cual asignar como favorito el libro</h1>
+	</div>
+
+	<form action="\afav2" method="POST">
+		<div class="row input-container">
+			<div class="col-xs-12">
+				<div class="select">
+					<select name="usr" required>
+						<option hidden selected>USUARIOS</option>
+						{% for usr in usr %}
+						<option value="{{usr.id}}">
+							{{usr.email}}
+						</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+
+			<div class="hidden">
+				<input type="hidden" id='id' name='id' required {% for libro in libro %}
+					value="{{libro.id_libro}}">
+				{% endfor %}
+			</div>
+
+			<div class="col-xs-12">
+				<input type="submit" value="Buscar!" class="btn-lrg submit-btn">
+
+			</div>
+		</div>
+	</form>
+
+</div>
+
+
+
+{% endblock %}
